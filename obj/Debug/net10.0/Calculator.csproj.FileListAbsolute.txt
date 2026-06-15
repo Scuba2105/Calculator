@@ -150,3 +150,4 @@ C:\Users\scuba\OneDrive\Documents\C# Programming\Calculator Redux\Calculator\bin
 C:\Users\scuba\OneDrive\Documents\C# Programming\Calculator Redux\Calculator\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\scuba\OneDrive\Documents\C# Programming\Calculator Redux\Calculator\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\scuba\OneDrive\Documents\C# Programming\Calculator Redux\Calculator\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\scuba\OneDrive\Documents\C# Programming\Calculator Redux\Calculator\obj\Debug\net10.0\Calculator.sourcelink.json
