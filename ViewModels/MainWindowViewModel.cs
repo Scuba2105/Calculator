@@ -293,6 +293,25 @@ namespace Calculator.ViewModels
             isCalculatedResult = false;
         }
 
+        // Triggered when '!' is pressed
+        public void FactorialCommand()
+        {
+            if (string.IsNullOrEmpty(DisplayText) || DisplayText == "0" || isCalculatedResult)
+            {
+                return; // Can't start an expression with a factorial symbol
+            }
+
+            char lastChar = DisplayText[DisplayText.Length - 1];
+
+            // Only allow factorial immediately after a digit, a closing bracket, or 'Ans'
+            if (char.IsDigit(lastChar) || lastChar == ')' || lastChar == 's')
+            {
+                // Append tight against the character (e.g., "5!")
+                DisplayText += "!";
+                isCalculatedResult = false;
+            }
+        }
+
         // Triggered when 'C' is pressed
         public void ClearCommand()
         {

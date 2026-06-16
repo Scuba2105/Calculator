@@ -59,15 +59,15 @@
                 </Button.Content>
             </Button>
             <Button Grid.Row="0" Grid.Column="3" Content="&#x221A;"  Command="{Binding ImplicitMultCommand}" CommandParameter="sqrt"/>
-            <Button Grid.Row="0" Grid.Column="4" Content="!" Command="{Binding OperatorCommand}" CommandParameter="!"/>
+            <Button Grid.Row="0" Grid.Column="4" Content="!" Command="{Binding FactorialCommand}" CommandParameter="!"/>
 
 
             <!-- Row 2 -->
-            <Button Grid.Row="1" Grid.Column="0" Content="sin" Command="{Binding TrigonometricCommand}" CommandParameter="sin"/>
-            <Button Grid.Row="1" Grid.Column="1" Content="cos" Command="{Binding TrigonometricCommand}" CommandParameter="cos"/>
-            <Button Grid.Row="1" Grid.Column="2" Content="tan" Command="{Binding TrigonometricCommand}" CommandParameter="tan"/>
-            <Button Grid.Row="1" Grid.Column="3" Content="ln" Command="{Binding LogarithmicCommand}" CommandParameter="ln"/>
-            <Button Grid.Row="1" Grid.Column="4" Content="log" Command="{Binding LogarithmicCommand}" CommandParameter="log+"/>
+            <Button Grid.Row="1" Grid.Column="0" Content="sin" Command="{Binding ImplicitMultCommand}" CommandParameter="sin"/>
+            <Button Grid.Row="1" Grid.Column="1" Content="cos" Command="{Binding ImplicitMultCommand}" CommandParameter="cos"/>
+            <Button Grid.Row="1" Grid.Column="2" Content="tan" Command="{Binding ImplicitMultCommand}" CommandParameter="tan"/>
+            <Button Grid.Row="1" Grid.Column="3" Content="ln" Command="{Binding ImplicitMultCommand}" CommandParameter="ln"/>
+            <Button Grid.Row="1" Grid.Column="4" Content="log" Command="{Binding ImplicitMultCommand}" CommandParameter="log+"/>
 
 
             <!-- Row 3 -->
