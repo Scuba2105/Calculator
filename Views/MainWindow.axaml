@@ -23,7 +23,7 @@
                  Margin="10" 
                  Height="80"/>
 
-        <Grid Grid.Row="1" RowDefinitions="*, *, *, *" ColumnDefinitions="*, *, *, *" Margin="10">
+        <Grid Grid.Row="1" RowDefinitions="*, *, *, *, *, *" ColumnDefinitions="*, *, *, *, *" Margin="10">
             <Grid.Styles>
                 <Style Selector="Button">
                     <Setter Property="FontSize" Value="20"/>
@@ -50,53 +50,53 @@
             <Button Grid.Row="0" Grid.Column="1" Content=")" Command="{Binding OperatorCommand}" CommandParameter=")"/>
             <Button Grid.Row="0" Grid.Column="2" 
                     Command="{Binding OperatorCommand}" 
-                    CommandParameter="*">
+                    CommandParameter="^">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <TextBlock Text="x" VerticalAlignment="Bottom"/>
-                        <TextBlock Text="n" FontSize="10" Margin="-2,0,0,6" VerticalAlignment="Bottom"/>
+                        <TextBlock Text="n" FontSize="11" Margin="-1,0,0,10" VerticalAlignment="Bottom"/>
                     </StackPanel>
                 </Button.Content>
             </Button>
-            <Button Grid.Row="0" Grid.Column="3" Content="&#x221A;"  Command="{Binding OperatorCommand}" CommandParameter="-"/>
-            <Button Grid.Row="0" Grid.Column="4" Content="!" Command="{Binding OperatorCommand}" CommandParameter="-"/>
+            <Button Grid.Row="0" Grid.Column="3" Content="&#x221A;"  Command="{Binding OperatorCommand}" CommandParameter="sqrt"/>
+            <Button Grid.Row="0" Grid.Column="4" Content="!" Command="{Binding OperatorCommand}" CommandParameter="!"/>
 
 
             <!-- Row 2 -->
-            <Button Grid.Row="1" Grid.Column="0" Content="sin" Command="{Binding TrigonometricCommand}" CommandParameter="7"/>
-            <Button Grid.Row="1" Grid.Column="1" Content="cos" Command="{Binding TrigonometricCommand}" CommandParameter="8"/>
-            <Button Grid.Row="1" Grid.Column="2" Content="tan" Command="{Binding TrigonometricCommand}" CommandParameter="9"/>
-            <Button Grid.Row="1" Grid.Column="3" Content="ln" Command="{Binding LogarithmicCommand}" CommandParameter="+"/>
-            <Button Grid.Row="1" Grid.Column="4" Content="log" Command="{Binding LogarithmicCommand}" CommandParameter="+"/>
+            <Button Grid.Row="1" Grid.Column="0" Content="sin" Command="{Binding TrigonometricCommand}" CommandParameter="sin"/>
+            <Button Grid.Row="1" Grid.Column="1" Content="cos" Command="{Binding TrigonometricCommand}" CommandParameter="cos"/>
+            <Button Grid.Row="1" Grid.Column="2" Content="tan" Command="{Binding TrigonometricCommand}" CommandParameter="tan"/>
+            <Button Grid.Row="1" Grid.Column="3" Content="ln" Command="{Binding LogarithmicCommand}" CommandParameter="ln"/>
+            <Button Grid.Row="1" Grid.Column="4" Content="log" Command="{Binding LogarithmicCommand}" CommandParameter="log+"/>
 
 
             <!-- Row 3 -->
-            <Button Grid.Row="2" Grid.Column="0" Content="4" Command="{Binding NumberCommand}" CommandParameter="4"/>
-            <Button Grid.Row="2" Grid.Column="1" Content="5" Command="{Binding NumberCommand}" CommandParameter="5"/>
-            <Button Grid.Row="2" Grid.Column="2" Content="6" Command="{Binding NumberCommand}" CommandParameter="6"/>
-            <Button Grid.Row="2" Grid.Column="3" Content="+" Command="{Binding OperatorCommand}" CommandParameter="+"/>
-            <Button Grid.Row="2" Grid.Column="4" Content="+" Command="{Binding OperatorCommand}" CommandParameter="+"/>
+            <Button Grid.Row="2" Grid.Column="0" Content="7" Command="{Binding NumberCommand}" CommandParameter="7"/>
+            <Button Grid.Row="2" Grid.Column="1" Content="8" Command="{Binding NumberCommand}" CommandParameter="8"/>
+            <Button Grid.Row="2" Grid.Column="2" Content="9" Command="{Binding NumberCommand}" CommandParameter="9"/>
+            <Button Grid.Row="2" Grid.Column="3" Content="C" Command="{Binding ClearCommand}" />
+            <Button Grid.Row="2" Grid.Column="4" Content="⌫" Command="{Binding BackspaceCommand}" />
             
             <!-- Row 4 -->
-            <Button Grid.Row="3" Grid.Column="0" Content="1" Command="{Binding NumberCommand}" CommandParameter="1"/>
-            <Button Grid.Row="3" Grid.Column="1" Content="2" Command="{Binding NumberCommand}" CommandParameter="2"/>
-            <Button Grid.Row="3" Grid.Column="2" Content="3" Command="{Binding NumberCommand}" CommandParameter="3"/>
-            <Button Grid.Row="3" Grid.Column="3" Content="=" Command="{Binding EqualCommand}"/>
-            <Button Grid.Row="3" Grid.Column="4" Content="=" Command="{Binding EqualCommand}"/>
+            <Button Grid.Row="3" Grid.Column="0" Content="4" Command="{Binding NumberCommand}" CommandParameter="4"/>
+            <Button Grid.Row="3" Grid.Column="1" Content="5" Command="{Binding NumberCommand}" CommandParameter="5"/>
+            <Button Grid.Row="3" Grid.Column="2" Content="6" Command="{Binding NumberCommand}" CommandParameter="6"/>
+            <Button Grid.Row="3" Grid.Column="3" Content="×" Command="{Binding OperatorCommand}" CommandParameter="*" />
+            <Button Grid.Row="3" Grid.Column="4" Content="÷" Command="{Binding OperatorCommand}" CommandParameter="/"/>
         
             <!-- Row 5 -->
-            <Button Grid.Row="4" Grid.Column="0" Content="0" Command="{Binding NumberCommand}" CommandParameter="0" Grid.ColumnSpan="2"/>
-            <Button Grid.Row="4" Grid.Column="1" Content="0" Command="{Binding NumberCommand}" CommandParameter="0" Grid.ColumnSpan="2"/>
-            <Button Grid.Row="4" Grid.Column="2" Content="0" Command="{Binding NumberCommand}" CommandParameter="0" Grid.ColumnSpan="2"/>
-            <Button Grid.Row="4" Grid.Column="3" Content="0" Command="{Binding NumberCommand}" CommandParameter="0" Grid.ColumnSpan="2"/>
-            <Button Grid.Row="4" Grid.Column="4" Content="0" Command="{Binding NumberCommand}" CommandParameter="0" Grid.ColumnSpan="2"/>
+            <Button Grid.Row="4" Grid.Column="0" Content="1" Command="{Binding NumberCommand}" CommandParameter="0" />
+            <Button Grid.Row="4" Grid.Column="1" Content="2" Command="{Binding NumberCommand}" CommandParameter="0" />
+            <Button Grid.Row="4" Grid.Column="2" Content="3" Command="{Binding NumberCommand}" CommandParameter="0" />
+            <Button Grid.Row="4" Grid.Column="3" Content="+" Command="{Binding OperatorCommand}" CommandParameter="+" />
+            <Button Grid.Row="4" Grid.Column="4" Content="-" Command="{Binding OperatorCommand}" CommandParameter="-" />
        
             <!-- Row 6 -->
-            <Button Grid.Row="5" Grid.Column="0" Content="0" Command="{Binding NumberCommand}" CommandParameter="0" Grid.ColumnSpan="2"/>
-            <Button Grid.Row="5" Grid.Column="1" Content="0" Command="{Binding NumberCommand}" CommandParameter="0" Grid.ColumnSpan="2"/>
-            <Button Grid.Row="5" Grid.Column="2" Content="0" Command="{Binding NumberCommand}" CommandParameter="0" Grid.ColumnSpan="2"/>
-            <Button Grid.Row="5" Grid.Column="3" Content="0" Command="{Binding NumberCommand}" CommandParameter="0" Grid.ColumnSpan="2"/>
-            <Button Grid.Row="5" Grid.Column="4" Content="0" Command="{Binding NumberCommand}" CommandParameter="0" Grid.ColumnSpan="2"/>
+            <Button Grid.Row="5" Grid.Column="0" Content="0" Command="{Binding NumberCommand}" CommandParameter="0" />
+            <Button Grid.Row="5" Grid.Column="1" Content="." Command="{Binding DecimalCommand}" />
+            <Button Grid.Row="5" Grid.Column="2" Content="exp" Command="{Binding ExponentialCommand}" />
+            <Button Grid.Row="5" Grid.Column="3" Content="Ans" Command="{Binding AnswerCommand}" />
+            <Button Grid.Row="5" Grid.Column="4" Content="=" Command="{Binding EqualsCommand}" />
        
         </Grid>
     </Grid>

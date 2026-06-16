@@ -11,6 +11,8 @@ namespace Calculator.ViewModels
 
         private bool isCalculatedResult = false;
 
+        private string lastAnswer = "0";
+
         public string DisplayText
         {
             get => _displayText;
@@ -42,10 +44,38 @@ namespace Calculator.ViewModels
             isCalculatedResult = false;
         }
 
+        // Triggered when the decimal point button is pressed
+        public void DecimalCommand(string decimalPoint)
+        {
+            if (DisplayText == "0" || isCalculatedResult)
+            {
+                DisplayText = "0.";
+                isCalculatedResult = false;
+            }
+            else if (!DisplayText.Contains('.'))
+            {
+                DisplayText += decimalPoint;
+            }
+        }
+
+        // Triggered when 'Ans' is pressed
+        public void AnswerCommand()
+        {
+            DisplayText = lastAnswer;
+        }
+
         // Triggered when 'C' is pressed
         public void ClearCommand()
         {
             DisplayText = "0";
+        }
+
+        public void BackspaceCommand()
+        {
+            if (DisplayText.Length > 1)
+                DisplayText = DisplayText.Substring(0, DisplayText.Length - 1);
+            else
+                DisplayText = "0";
         }
 
         public void TrigonometricCommand(string function)
@@ -60,8 +90,15 @@ namespace Calculator.ViewModels
             isCalculatedResult = false;
         }
 
+        // Triggered when 'exp' is pressed
+        public void ExponentialCommand()
+        {
+            DisplayText += " exp(";
+            isCalculatedResult = false;
+        }
+
         // Triggered when '=' is pressed
-        public void EqualCommand()
+        public void EqualsCommand()
         {
             // Don't calculate if the expression ends with an incomplete operator
             if (DisplayText.EndsWith(" ") || DisplayText == "0") 
@@ -77,6 +114,7 @@ namespace Calculator.ViewModels
                 }
 
                 string result = EvaluateExpression(DisplayText);
+                lastAnswer = result;
                 DisplayText = result;
                 isCalculatedResult = true;
             }
