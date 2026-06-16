@@ -48,6 +48,18 @@ namespace Calculator.ViewModels
             DisplayText = "0";
         }
 
+        public void TrigonometricCommand(string function)
+        {
+            DisplayText += $" {function}(";
+            isCalculatedResult = false;
+        }
+
+        public void LogarithmicCommand(string function)
+        {
+            DisplayText += $" {function}(";
+            isCalculatedResult = false;
+        }
+
         // Triggered when '=' is pressed
         public void EqualCommand()
         {
