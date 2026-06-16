@@ -46,11 +46,11 @@
             </Grid.Styles>
 
             <!-- Row 1 -->
-            <Button Grid.Row="0" Grid.Column="0" Content="(" Command="{Binding OperatorCommand}" CommandParameter="("/>
+            <Button Grid.Row="0" Grid.Column="0" Content="(" Command="{Binding ImplicitMultCommand}" CommandParameter="("/>
             <Button Grid.Row="0" Grid.Column="1" Content=")" Command="{Binding OperatorCommand}" CommandParameter=")"/>
             <Button Grid.Row="0" Grid.Column="2" 
-                    Command="{Binding OperatorCommand}" 
-                    CommandParameter="^">
+                    Command="{Binding ImplicitMultCommand}" 
+                    CommandParameter="pow,false">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <TextBlock Text="x" VerticalAlignment="Bottom"/>
@@ -58,7 +58,7 @@
                     </StackPanel>
                 </Button.Content>
             </Button>
-            <Button Grid.Row="0" Grid.Column="3" Content="&#x221A;"  Command="{Binding OperatorCommand}" CommandParameter="sqrt"/>
+            <Button Grid.Row="0" Grid.Column="3" Content="&#x221A;"  Command="{Binding ImplicitMultCommand}" CommandParameter="sqrt"/>
             <Button Grid.Row="0" Grid.Column="4" Content="!" Command="{Binding OperatorCommand}" CommandParameter="!"/>
 
 
@@ -94,7 +94,7 @@
             <!-- Row 6 -->
             <Button Grid.Row="5" Grid.Column="0" Content="0" Command="{Binding NumberCommand}" CommandParameter="0" />
             <Button Grid.Row="5" Grid.Column="1" Content="." Command="{Binding DecimalCommand}" />
-            <Button Grid.Row="5" Grid.Column="2" Content="exp" Command="{Binding ExponentialCommand}" />
+            <Button Grid.Row="5" Grid.Column="2" Content="exp" Command="{Binding ImplicitMultCommand}" CommandParameter="pow,true" />
             <Button Grid.Row="5" Grid.Column="3" Content="Ans" Command="{Binding AnswerCommand}" />
             <Button Grid.Row="5" Grid.Column="4" Content="=" Command="{Binding EqualsCommand}" />
        
