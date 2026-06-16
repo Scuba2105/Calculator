@@ -377,17 +377,12 @@ namespace Calculator.ViewModels
                 // 3. Initialize Mathos Parser
                 var parser = new MathParser();
 
-                // 4. Add your custom constants
-                parser.LocalVariables.Add("e", Math.E);
-                
                 // Convert your string lastAnswer to double safely for the parser
                 double ansValue = double.TryParse(lastAnswer, out double parsedAns) ? parsedAns : 0;
                 parser.LocalVariables.Add("Ans", ansValue);
                 
                 // 5. FIX: Use 'LocalFunctions' and read inputs[0] 
-                // Add custom Natural Log support
-                parser.LocalFunctions.Add("ln", inputs => Math.Log(inputs[0])); 
-                
+                               
                 // Add custom Factorial math rule
                 parser.LocalFunctions.Add("fact", inputs => CalculateFactorial(inputs[0]));
 
@@ -401,7 +396,7 @@ namespace Calculator.ViewModels
             }
             catch (Exception ex)
             {
-                DisplayText = "Error";
+                DisplayText = ex.Message;
                 isCalculatedResult = true;
             }
         }

@@ -85,9 +85,9 @@
             <Button Grid.Row="3" Grid.Column="4" Content="÷" Command="{Binding OperatorCommand}" CommandParameter="/"/>
         
             <!-- Row 5 -->
-            <Button Grid.Row="4" Grid.Column="0" Content="1" Command="{Binding NumberCommand}" CommandParameter="0" />
-            <Button Grid.Row="4" Grid.Column="1" Content="2" Command="{Binding NumberCommand}" CommandParameter="0" />
-            <Button Grid.Row="4" Grid.Column="2" Content="3" Command="{Binding NumberCommand}" CommandParameter="0" />
+            <Button Grid.Row="4" Grid.Column="0" Content="1" Command="{Binding NumberCommand}" CommandParameter="1" />
+            <Button Grid.Row="4" Grid.Column="1" Content="2" Command="{Binding NumberCommand}" CommandParameter="2" />
+            <Button Grid.Row="4" Grid.Column="2" Content="3" Command="{Binding NumberCommand}" CommandParameter="3" />
             <Button Grid.Row="4" Grid.Column="3" Content="+" Command="{Binding OperatorCommand}" CommandParameter="+" />
             <Button Grid.Row="4" Grid.Column="4" Content="-" Command="{Binding OperatorCommand}" CommandParameter="-" />
        
