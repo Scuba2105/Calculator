@@ -2,6 +2,8 @@
 using System.Data;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Mathos.Parser;
+using System.Text.RegularExpressions;
 
 namespace Calculator.ViewModels
 {
@@ -343,10 +345,7 @@ namespace Calculator.ViewModels
                     return;
                 }
 
-                string result = EvaluateExpression(DisplayText);
-                lastAnswer = result;
-                DisplayText = result;
-                isCalculatedResult = true;
+               EvaluateExpression(DisplayText);
             }
             catch (Exception)
             {
@@ -355,17 +354,73 @@ namespace Calculator.ViewModels
         }
 
         // 2. THIS IS THE CALCULATOR ENGINE HELPER METHOD
-        private string EvaluateExpression(string expression)
+        public void EvaluateExpression(string expression)
         {
-            // DataTable.Compute is a built-in .NET tool that parses and solves string math
-            using (var dt = new DataTable())
+            if (string.IsNullOrEmpty(expression)) return;
+
+            string expressionToParse = expression;
+
+            try
             {
-                var result = dt.Compute(expression, "");
+                // 1. Automatically balance unclosed brackets
+                int openCount = expressionToParse.Split('(').Length - 1;
+                int closeCount = expressionToParse.Split(')').Length - 1;
+                while (openCount > closeCount)
+                {
+                    expressionToParse += ")";
+                    closeCount++;
+                }
+
+                // 2. Convert Factorial symbols 'x!' into 'fact(x)' using Regex
+                expressionToParse = Regex.Replace(expressionToParse, @"(\d+(\.\d+)?|\([^)]+\))\s*!", "fact($1)");
+
+                // 3. Initialize Mathos Parser
+                var parser = new MathParser();
+
+                // 4. Add your custom constants
+                parser.LocalVariables.Add("e", Math.E);
                 
-                // Convert object result to string, and handle decimal formatting
-                double doubleResult = Convert.ToDouble(result);
-                return doubleResult.ToString();
+                // Convert your string lastAnswer to double safely for the parser
+                double ansValue = double.TryParse(lastAnswer, out double parsedAns) ? parsedAns : 0;
+                parser.LocalVariables.Add("Ans", ansValue);
+                
+                // 5. FIX: Use 'LocalFunctions' and read inputs[0] 
+                // Add custom Natural Log support
+                parser.LocalFunctions.Add("ln", inputs => Math.Log(inputs[0])); 
+                
+                // Add custom Factorial math rule
+                parser.LocalFunctions.Add("fact", inputs => CalculateFactorial(inputs[0]));
+
+                // 6. Parse the final expression
+                double result = parser.Parse(expressionToParse);
+
+                // 7. Update display state
+                lastAnswer = result.ToString();
+                DisplayText = lastAnswer;
+                isCalculatedResult = true;
             }
+            catch (Exception ex)
+            {
+                DisplayText = "Error";
+                isCalculatedResult = true;
+            }
+        }
+
+        // Helper method to compute factorials safely
+        private double CalculateFactorial(double value)
+        {
+            // Factorials are only defined for non-negative integers
+            if (value < 0 || value % 1 != 0) 
+                throw new ArgumentException("Factorial must be a non-negative integer.");
+
+            if (value == 0 || value == 1) return 1;
+
+            double result = 1;
+            for (int i = 2; i <= (int)value; i++)
+            {
+                result *= i;
+            }
+            return result;
         }
 
         // Standard boilerplate code to tell Avalonia to update the UI text

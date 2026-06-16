@@ -553,6 +553,15 @@
           }
         }
       },
+      "MathosParser/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MathParser.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MathParser.dll": {}
+        }
+      },
       "MicroCom.Runtime/0.11.4": {
         "type": "package",
         "compile": {
@@ -1635,6 +1644,25 @@
         "runtimes/win-x86/native/libHarfBuzzSharp.pdb"
       ]
     },
+    "MathosParser/2.0.0": {
+      "sha512": "HwL4w5Eljn2aT8AouCHzllteLdSq8IBnNzfcK2ttDkfFM3S/vpSWl85SNUJbABpybDL65vSiQ1kR4JQJxiGUvw==",
+      "type": "package",
+      "path": "mathosparser/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/MathParser.dll",
+        "lib/net46/MathParser.dll",
+        "lib/net461/MathParser.dll",
+        "lib/net462/MathParser.dll",
+        "lib/net47/MathParser.dll",
+        "lib/net471/MathParser.dll",
+        "lib/netstandard1.4/MathParser.dll",
+        "lib/netstandard2.0/MathParser.dll",
+        "mathosparser.2.0.0.nupkg.sha512",
+        "mathosparser.nuspec"
+      ]
+    },
     "MicroCom.Runtime/0.11.4": {
       "sha512": "yZ8+Lgwo+KtRI29TB2mIOEMzV+csMJ+pKZg4YHReAP3vRewWLKKeYfrBDo5FS69rWnEbCfU3sbM+ZEQr+GDLtg==",
       "type": "package",
@@ -2309,7 +2337,8 @@
       "Avalonia.Fonts.Inter >= 12.0.4",
       "Avalonia.Themes.Fluent >= 12.0.4",
       "AvaloniaUI.DiagnosticsSupport >= 2.2.1",
-      "CommunityToolkit.Mvvm >= 8.4.1"
+      "CommunityToolkit.Mvvm >= 8.4.1",
+      "MathosParser >= 2.0.0"
     ]
   },
   "packageFolders": {
@@ -2384,6 +2413,10 @@
           "CommunityToolkit.Mvvm": {
             "target": "Package",
             "version": "[8.4.1, )"
+          },
+          "MathosParser": {
+            "target": "Package",
+            "version": "[2.0.0, )"
           }
         },
         "imports": [
